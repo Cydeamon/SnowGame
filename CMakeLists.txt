@@ -30,7 +30,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 include(CTest)
 enable_testing()
 
-add_executable(SnowGame Sources/main.cpp)
+add_executable(
+  SnowGame 
+  "Sources/main.cpp"
+  "Sources/RenderHandler.h"
+  "Sources/RenderHandler.cpp"
+)
 
 
 #set(raylib_VERBOSE 1)
