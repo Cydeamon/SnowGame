@@ -3,14 +3,19 @@
 
 
 #include "raylib.h"
+#include <iostream>
 
 class Player
 {
 private: 
     Texture2D playerTexture;
     Vector2 position;
-    int moveSpeed = 250;
+    Vector2 velocity;
+    int moveSpeed = 4;
+    int lerpFactor = 50;
     int snowFlakesCount = 0;
+
+    float LerpValue(float goal, float current);
 
 public:
     Player();

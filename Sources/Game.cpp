@@ -43,22 +43,21 @@ void Game::UnloadResources()
 
 void Game::ProcessControls()
 {
-    if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_UP) || IsKeyDown(KEY_DOWN)) 
-    {
-        Vector2 direction = {0, 0};
+    // Movement    
+    Vector2 direction = {0, 0};
 
-        if (IsKeyDown(KEY_LEFT))
-            direction.x -= 1;
+    if (IsKeyDown(KEY_LEFT))
+        direction.x -= 1;
 
-        if (IsKeyDown(KEY_RIGHT))
-            direction.x += 1;
+    if (IsKeyDown(KEY_RIGHT))
+        direction.x += 1;
 
-        if (IsKeyDown(KEY_UP))
-            direction.y -= 1;
+    if (IsKeyDown(KEY_UP))
+        direction.y -= 1;
 
-        if (IsKeyDown(KEY_DOWN))
-            direction.y += 1;
+    if (IsKeyDown(KEY_DOWN))
+        direction.y += 1;
 
-        player->Move(Vector2Normalize(direction));
-    }
+    player->Move(Vector2Normalize(direction));
+    
 }
