@@ -31,10 +31,14 @@ include(CTest)
 enable_testing()
 
 add_executable(
-  SnowGame 
+  SnowGame
   "Sources/main.cpp"
   "Sources/RenderHandler.h"
   "Sources/RenderHandler.cpp"
+  "Sources/Player.h"
+  "Sources/Player.cpp"
+  "Sources/Game.h"
+  "Sources/Game.cpp"
 )
 
 
