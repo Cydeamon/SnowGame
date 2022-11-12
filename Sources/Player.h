@@ -9,7 +9,7 @@ class Player
 private: 
     Texture2D playerTexture;
     Vector2 position;
-    int moveSpeed = 10;
+    int moveSpeed = 250;
     int snowFlakesCount = 0;
 
 public:
@@ -27,9 +27,8 @@ public:
 
     void ResetSnowFlakesCount() { snowFlakesCount = 0; }
     void CollectSnowFlake()     { snowFlakesCount++; }
-    void MoveX(int howMuch)     { position.x += howMuch * moveSpeed; }
-    void MoveY(int howMuch)     { position.y += howMuch * moveSpeed; }
-
+    
+    void Move(Vector2 direction);
     void Draw();
 };
 

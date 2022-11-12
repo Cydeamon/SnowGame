@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-
 #include "raylib.h"
+#include "raymath.h"
 #include "Player.h"
 #include "RenderHandler.h"
 
@@ -20,6 +20,7 @@ public:
     ~Game();
 
     void GameLogic();
+    void ProcessControls();
 };
 
 #endif
