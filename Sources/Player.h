@@ -29,6 +29,8 @@ public:
     void CollectSnowFlake()     { snowFlakesCount++; }
     void MoveX(int howMuch)     { position.x += howMuch * moveSpeed; }
     void MoveY(int howMuch)     { position.y += howMuch * moveSpeed; }
+
+    void Draw();
 };
 
 #endif
