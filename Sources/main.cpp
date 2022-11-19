@@ -19,6 +19,7 @@ int main()
     SetTargetFPS(60);
     SetWindowMinSize(renderHandler->GetWindowedDefaultWidth(), renderHandler->GetWindowedDefaultHeight());
     SetWindowPosition(renderHandler->GetWindowedCenteredPositionX(), renderHandler->GetWindowedCenteredPositionY());
+    renderHandler->ToggleBorderlessFullscreen();
 
     while (!WindowShouldClose())
     {

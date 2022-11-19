@@ -3,16 +3,28 @@
 Player::Player()
 {
     playerTexture = LoadTexture("../Assets/Sprites/Player.Idle.png");
+    playerCatchTexture = LoadTexture("../Assets/Sprites/Player.Catching.png");
+    
+    catchZoneStart.x = 6;
+    catchZoneStart.y = 15;    
+    
+    catchZoneEnd.x = 13;
+    catchZoneEnd.y = 17;
 }
 
 Player::~Player()
 {
     UnloadTexture(playerTexture);
+    UnloadTexture(playerCatchTexture);
 }
 
 void Player::Draw()
 {
-    DrawTexture(playerTexture, position.x, position.y, WHITE);
+    switch (state)
+    {
+        case PlayerState::DEFAULT:  DrawTexture(playerTexture,      position.x, position.y, WHITE); break;
+        case PlayerState::CATCHING: DrawTexture(playerCatchTexture, position.x, position.y, WHITE); break;
+    }
 }
 
 void Player::Move(Vector2 direction)
@@ -36,4 +48,15 @@ float Player::LerpValue(float goal, float current)
         return current - delta;
 
     return goal;
+}
+
+bool Player::InCatchZone(Vector2 position)
+{
+    Vector2 globalCatchZoneStart = Vector2Add(this->position, catchZoneStart);
+    Vector2 globalCatchZoneEnd = Vector2Add(this->position, catchZoneEnd);
+
+    bool inZone = globalCatchZoneStart.x <= position.x && globalCatchZoneEnd.x >= position.x && 
+                  globalCatchZoneStart.y <= position.y && globalCatchZoneEnd.y >= position.y;
+
+    return inZone;
 }

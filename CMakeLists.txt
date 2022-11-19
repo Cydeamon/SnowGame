@@ -39,6 +39,8 @@ add_executable(
   "Sources/Player.cpp"
   "Sources/Game.h"
   "Sources/Game.cpp"
+  "Sources/GameObjects/Snow.h"
+  "Sources/GameObjects/Snow.cpp"
 )
 
 
